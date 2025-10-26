@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Next Wave</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffb6e6, #ffe0f7);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 400px;
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      animation: slideIn 1s ease;
+    }
+
+    @keyframes slideIn {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .form-container h3 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #d63384;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background-color: #d63384;
+      border: none;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background-color: #b11d68;
+      transform: scale(1.03);
+      transition: 0.3s;
+    }
+
+    .extra-links {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .extra-links a {
+      color: #d63384;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .extra-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Forgot password modal */
+    .modal-content {
+      border-radius: 15px;
+    }
+
+    .modal-header {
+      background: #d63384;
+      color: #fff;
+      border-radius: 15px 15px 0 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h3>Login</h3>
+    <form id="loginForm">
+      <input type="text" id="loginEmail" class="form-control mb-3" placeholder="Email or Phone Number" required>
+      <input type="password" id="loginPassword" class="form-control mb-3" placeholder="Password" required>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+
+      <div class="extra-links">
+        <a href="#" data-bs-toggle="modal" data-bs-target="#forgotModal">Forgot Password?</a><br>
+        <a href="register.html">Don’t have an account? Sign Up</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div class="modal fade" id="forgotModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Reset Password</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Enter your registered email to reset your password.</p>
+          <input type="email" id="resetEmail" class="form-control mb-3" placeholder="Your Email" required>
+          <button class="btn btn-primary w-100" onclick="resetPassword()">Send Reset Link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Handle login
+    document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      const registeredEmail = localStorage.getItem('registeredEmail');
+      const registeredPassword = localStorage.getItem('registeredPassword');
+
+      if(email === registeredEmail && password === registeredPassword){
+        alert("Login successful!");
+        // You can redirect to dashboard here
+        // window.location.href = "dashboard.html";
+      } else {
+        alert("Incorrect email/phone or password!");
+      }
+    });
+
+    // Forgot password
+    function resetPassword() {
+      const resetEmail = document.getElementById('resetEmail').value;
+      const registeredEmail = localStorage.getItem('registeredEmail');
+
+      if (resetEmail === registeredEmail) {
+        alert("A reset link has been sent to " + resetEmail + " (simulated).");
+        const modal = bootstrap.Modal.getInstance(document.getElementById('forgotModal'));
+        modal.hide();
+      } else {
+        alert("Email not found! Please register first.");
+      }
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

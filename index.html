@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next Wave</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Navbar styling */
+    /* Dropdown items default and hover color */
+/* Navbar brand and links */
+.navbar-brand, .nav-link {
+  color: black !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 8px; /* smooth corners */
+  padding: 8px 14px;
+}
+
+/* Hover effect for main nav items like “Menu” */
+.nav-link:hover {
+  background-color: #e6f0ff !important; /* light blue background */
+  color: #007bff !important;            /* blue text */
+  transform: scale(1.05);
+}
+
+/* Dropdown items style */
+.dropdown-item {
+  color: black !important;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.dropdown-item:hover {
+  background-color: #e6f0ff !important; /* same light blue background */
+  color: #007bff !important;            /* same blue text */
+  transform: scale(1.03);
+}
+
+/* Dropdown menu look */
+.dropdown-menu {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Smooth dropdown animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+    /* Section below navbar */
+    .hero-section {
+      background: linear-gradient(to bottom, #ffe0f7fa, #ffe0f7fa);
+      min-height: 100vh;
+      text-align: center;
+      padding: 80px 20px;
+      color: #333;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Next Wave</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Menu
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="register.html">Register</a></li>
+              <li><a class="dropdown-item" href="login.html">Login</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section below navbar -->
+  <section class="hero-section">
+    <h1>Welcome to Next Wave 🌊</h1>
+    <p>Your gateway to innovation, learning, and growth.</p>
+    <p>Join us today and be part of the next big wave of creativity and technology!</p>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
